@@ -1,3 +1,7 @@
+/* =========================
+   MOPRO STORE - CSS V2
+   ========================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,42 +12,121 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    background: #050505;
+      body {
+    background: radial-gradient(circle at top, #001a33 0%, #0b0b0b 45%, #111111 100%);
     color: #ffffff;
     font-family: Arial, sans-serif;
     text-align: center;
     line-height: 1.8;
+    overflow-x: hidden;
 }
 
-/* الهيدر */
+/* =========================
+   اللوجو + الهيدر
+   ========================= */
+
 header {
-    padding: 45px 15px;
-    background: linear-gradient(135deg, #050505, #0b1712, #07101c);
+    position: relative;
+    padding: 35px 15px 45px;
+    background: linear-gradient(135deg, #000000 0%, #00152e 50%, #003b73 100%);
     border-bottom: 2px solid #d4af37;
+    overflow: hidden;
 }
+
+header::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: #0066ff;
+    filter: blur(120px);
+    opacity: 0.18;
+    top: -100px;
+    left: -100px;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: #0066ff;
+    filter: blur(120px);
+    opacity: 0.12;
+    bottom: -120px;
+    right: -100px;
+}
+
+.logo {
+    position: relative;
+    z-index: 2;
+
+    width: min(360px, 92%);
+    min-height: 210px;
+
+    margin: 0 auto 18px;
+
+    background-image: url("mopro-logo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-size: 0;
+
+    filter:
+        drop-shadow(0 0 12px rgba(0, 119, 255, 0.65))
+        drop-shadow(0 0 20px rgba(0, 255, 102, 0.35))
+        drop-shadow(0 0 25px rgba(255, 190, 0, 0.25));
+
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+
+    filter:
+        drop-shadow(0 0 15px rgba(0, 119, 255, 0.8))
+        drop-shadow(0 0 25px rgba(0, 255, 102, 0.5))
+        drop-shadow(0 0 30px rgba(255, 190, 0, 0.35));
+}
+
+.logo:hover {
+    transform: scale(1.04);
+}
+
 header h1 {
-    color: #d4af37;
+    position: relative;
+    z-index: 2;
+
+    color: #ffd700;
     font-size: 42px;
     font-weight: 900;
     letter-spacing: 2px;
-    margin-bottom: 15px;
+
+    margin-bottom: 10px;
+
     text-shadow:
-        0 0 8px rgba(212, 175, 55, 0.8),
-        0 0 20px rgba(0, 255, 102, 0.25);
+        0 0 8px rgba(255, 215, 0, 0.7),
+        0 0 20px rgba(0, 119, 255, 0.35);
 }
 
 header h2 {
+    position: relative;
+    z-index: 2;
+
     color: #00ff66;
     font-size: 27px;
     margin-bottom: 10px;
 }
 
 header p {
+    position: relative;
+    z-index: 2;
+
     color: #dddddd;
     font-size: 17px;
     max-width: 750px;
-    margin: 10px auto;
+    margin: 9px auto;
 }
 
 header p:last-child {
@@ -51,180 +134,446 @@ header p:last-child {
     font-weight: bold;
 }
 
-/* شريط الأزرار */
+/* =========================
+   شريط التنقل
+   ========================= */
+
 nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
-    padding: 18px 10px;
-    background: #0b0b0b;
-    border-bottom: 1px solid #1d1d1d;
+
+    padding: 15px 10px;
+
+    background: rgba(5, 5, 5, 0.96);
+    border-bottom: 1px solid #222;
+
     position: sticky;
     top: 0;
     z-index: 1000;
+
+    backdrop-filter: blur(10px);
 }
 
 nav a {
-    display: inline-block;
     color: #ffffff;
     background: linear-gradient(135deg, #075cff, #003db8);
+
     text-decoration: none;
-    padding: 12px 22px;
-    border-radius: 14px;
-    font-size: 17px;
+
+    padding: 11px 17px;
+
+    border-radius: 13px;
+
+    font-size: 16px;
     font-weight: bold;
+
     border: 1px solid #1677ff;
-    box-shadow: 0 4px 12px rgba(0, 92, 255, 0.25);
-    transition: 0.3s ease;
+
+    box-shadow:
+        0 4px 12px rgba(0, 92, 255, 0.25);
+
+    transition: 0.25s ease;
 }
 
 nav a:hover {
     background: linear-gradient(135deg, #00c853, #008f3c);
     border-color: #00ff66;
-    box-shadow: 0 4px 15px rgba(0, 255, 102, 0.35);
+
     transform: translateY(-3px);
+
+    box-shadow:
+        0 5px 18px rgba(0, 255, 102, 0.3);
 }
 
 nav a:active {
-    transform: scale(0.96);
+    transform: scale(0.95);
 }
 
-nav a:hover {
-    background: linear-gradient(135deg, #00c853, #008f3c);
-    transform: translateY(-2px);
-}
+/* =========================
+   المحتوى
+   ========================= */
 
-/* المحتوى */
 main {
     width: 100%;
-    max-width: 950px;
+    max-width: 1000px;
+
     margin: auto;
-    padding: 25px 15px;
+
+    padding: 20px 14px;
 }
 
 section {
-    background: #0d0d0d;
-    border: 1px solid #222222;
-    border-radius: 18px;
+    position: relative;
+
+    background:
+        linear-gradient(145deg, #0e0e0e, #090909);
+
+    border: 1px solid #252525;
+    border-radius: 20px;
+
     padding: 30px 20px;
+
     margin: 25px 0;
-    box-shadow: 0 0 20px rgba(0, 255, 102, 0.06);
+
+    box-shadow:
+        0 0 25px rgba(0, 255, 102, 0.05);
+
+    overflow: hidden;
+}
+
+section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 120px;
+    height: 120px;
+
+    background: #075cff;
+
+    filter: blur(100px);
+
+    opacity: 0.08;
+
+    top: -50px;
+    right: -40px;
 }
 
 section h2 {
     color: #d4af37;
-    font-size: 29px;
+
+    font-size: 30px;
+
     margin-bottom: 20px;
+
+    text-shadow:
+        0 0 10px rgba(212, 175, 55, 0.25);
 }
 
 section h3 {
     color: #00ff66;
-    margin: 15px 0;
+
+    margin: 14px 0;
+
+    font-size: 21px;
 }
 
 section h4 {
     color: #4da6ff;
+
     font-size: 20px;
+
     margin: 18px 0 8px;
 }
 
-/* كروت الأسعار */
+/* =========================
+   الرئيسية
+   ========================= */
+
+.home-section {
+    border-color: #075cff;
+}
+
+.home-section p {
+    color: #dddddd;
+    font-size: 18px;
+}
+
+/* =========================
+   كروت الأسعار
+   ========================= */
+
 .price-box {
-    background: #111111;
+    background:
+        linear-gradient(145deg, #121212, #080808);
+
     border: 1px solid #d4af37;
-    border-radius: 15px;
+
+    border-radius: 17px;
+
     padding: 25px 18px;
+
     margin: 20px auto;
-    max-width: 700px;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.08);
+
+    max-width: 720px;
+
+    box-shadow:
+        0 0 18px rgba(212, 175, 55, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.price-box:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 25px rgba(212, 175, 55, 0.12);
 }
 
 .price-box p {
-    padding: 7px;
-    margin: 4px 0;
-    border-bottom: 1px solid #222222;
+    padding: 8px;
+
+    margin: 3px 0;
+
+    border-bottom: 1px solid #242424;
+
     font-size: 17px;
 }
 
+.price-box p:last-of-type {
+    border-bottom: none;
+}
+
+/* =========================
+   أزرار الطلب
+   ========================= */
+
 .price-box a,
 .contact-box a,
-.links-box a {
-   display: inline-block;
-color: #ffffff;
-background: linear-gradient(135deg, #00c853, #008f3d);
-text-decoration: none;
-padding: 10px 18px;
-margin-top: 18px;
-border-radius: 10px;
-font-weight: bold;
-border: 1px solid #00ff66;
-transition: 0.3s;
+.links-box a,
+.special-order-box a {
+
+    display: inline-block;
+
+    color: #ffffff;
+
+    background:
+        linear-gradient(135deg, #00c853, #008f3d);
+
+    text-decoration: none;
+
+    padding: 11px 20px;
+
+    margin-top: 18px;
+
+    border-radius: 11px;
+
+    font-weight: bold;
+
+    border: 1px solid #00ff66;
+
+    box-shadow:
+        0 4px 12px rgba(0, 255, 102, 0.15);
+
+    transition: 0.25s ease;
 }
 
 .price-box a:hover,
 .contact-box a:hover,
-.links-box a:hover {
-    background: #075cff;
+.links-box a:hover,
+.special-order-box a:hover {
+
+    background:
+        linear-gradient(135deg, #075cff, #003db8);
+
     border-color: #4da6ff;
-    transform: scale(1.03);
+
+    transform: scale(1.04);
 }
 
-/* التواصل */
-.contact-box {
-    background: #111111;
-    border: 1px solid #075cff;
-    border-radius: 15px;
-    padding: 20px;
-    margin: 18px auto;
-    max-width: 600px;
+/* =========================
+   الطلبيات الخاصة
+   ========================= */
+
+#special-orders {
+    border: 1px solid #ffb300;
+
+    background:
+        radial-gradient(circle at top right, rgba(255, 179, 0, 0.08), transparent 35%),
+        linear-gradient(145deg, #12100a, #080808);
+
+    box-shadow:
+        0 0 25px rgba(255, 179, 0, 0.08);
 }
 
-.contact-box p {
-    font-size: 20px;
-    color: #ffffff;
+#special-orders h2 {
+    color: #ffcc33;
+
+    text-shadow:
+        0 0 12px rgba(255, 180, 0, 0.3);
+}
+
+.special-order-box {
+    max-width: 750px;
+
+    margin: auto;
+
+    padding: 24px 18px;
+
+    background: #0c0c0c;
+
+    border: 1px solid #765c16;
+
+    border-radius: 16px;
+}
+
+.special-order-box p {
+    color: #eeeeee;
+
+    font-size: 17px;
+
+    padding: 9px 0;
+
+    border-bottom: 1px solid #242424;
+}
+
+.special-order-box p strong {
+    color: #ffd700;
+}
+
+.special-order-box p:nth-last-of-type(2) {
+    color: #00ff66;
+
     font-weight: bold;
+
+    font-size: 19px;
 }
 
-/* الروابط */
+.special-order-box a {
+    background:
+        linear-gradient(135deg, #ffb300, #d48700);
+
+    border-color: #ffd700;
+
+    color: #050505;
+}
+
+.special-order-box a:hover {
+    background:
+        linear-gradient(135deg, #00c853, #008f3d);
+
+    color: #ffffff;
+
+    border-color: #00ff66;
+}
+
+/* =========================
+   الضمان
+   ========================= */
+
+#guarantee {
+    border-color: #00c853;
+}
+
 .links-box {
     display: flex;
+
     justify-content: center;
+
     gap: 12px;
+
     flex-wrap: wrap;
+
     margin-top: 20px;
 }
 
 .links-box a {
     margin-top: 0;
-    background: #075cff;
+
+    background:
+        linear-gradient(135deg, #075cff, #003db8);
+
     border-color: #1677ff;
 }
 
 .links-box a:hover {
-    background: #00c853;
+    background:
+        linear-gradient(135deg, #00c853, #008f3c);
+
     border-color: #00ff66;
 }
 
-/* الفوتر */
+/* =========================
+   التواصل
+   ========================= */
+
+.contact-box {
+    background:
+        linear-gradient(145deg, #121212, #090909);
+
+    border: 1px solid #075cff;
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    margin: 18px auto;
+
+    max-width: 620px;
+
+    box-shadow:
+        0 0 15px rgba(0, 92, 255, 0.07);
+}
+
+.contact-box h3 {
+    color: #4da6ff;
+}
+
+.contact-box p {
+    font-size: 21px;
+
+    color: #ffffff;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+/* =========================
+   الفوتر
+   ========================= */
+
 footer {
     background: #030303;
+
     color: #999999;
-    padding: 22px;
+
+    padding: 24px 15px;
+
     margin-top: 30px;
+
     border-top: 1px solid #d4af37;
 }
 
-/* الموبايل */
+footer p {
+    margin: 5px 0;
+}
+
+footer p:last-child {
+    color: #bbbbbb;
+    font-size: 14px;
+}
+
+/* =========================
+   زر الرجوع لأعلى
+   ========================= */
+
+button {
+    font-family: Arial, sans-serif;
+}
+
+/* =========================
+   الموبايل
+   ========================= */
+
 @media (max-width: 600px) {
 
     header {
-        padding: 35px 12px;
+        padding: 25px 10px 35px;
+    }
+
+    .logo {
+        width: 90%;
+        min-height: 155px;
+        margin-bottom: 12px;
     }
 
     header h1 {
         font-size: 30px;
+        letter-spacing: 1px;
     }
 
     header h2 {
@@ -236,34 +585,61 @@ footer {
     }
 
     nav {
-        gap: 7px;
-        padding: 12px 6px;
+        gap: 6px;
+        padding: 10px 5px;
     }
 
     nav a {
-        padding: 8px 12px;
-        font-size: 14px;
+        padding: 9px 11px;
+        font-size: 13px;
+        border-radius: 10px;
     }
 
     main {
-        padding: 15px 10px;
+        padding: 12px 8px;
     }
 
     section {
-        padding: 22px 12px;
-        border-radius: 15px;
+        padding: 23px 12px;
+        margin: 17px 0;
+        border-radius: 17px;
     }
 
     section h2 {
-        font-size: 24px;
+        font-size: 25px;
+    }
+
+    section h3 {
+        font-size: 19px;
     }
 
     .price-box {
-        padding: 18px 10px;
+        padding: 20px 10px;
+        border-radius: 14px;
     }
 
     .price-box p {
         font-size: 15px;
+    }
+
+    .special-order-box {
+        padding: 18px 10px;
+    }
+
+    .special-order-box p {
+        font-size: 15px;
+    }
+
+    .special-order-box p:nth-last-of-type(2) {
+        font-size: 17px;
+    }
+
+    .contact-box {
+        padding: 18px 10px;
+    }
+
+    .contact-box p {
+        font-size: 19px;
     }
 
     .links-box {
@@ -273,55 +649,101 @@ footer {
     .links-box a {
         width: 100%;
     }
+
+    .price-box a,
+    .contact-box a,
+    .special-order-box a {
+        width: 100%;
+        padding: 11px 10px;
+    }
 }
 
-.logo {
-    display: inline-block;
-    color: #ffffff;
-    background: linear-gradient(135deg, #00c853, #075cff);
-    padding: 10px 22px;
-    border: 2px solid #d4af37;
-    border-radius: 14px;
-    font-size: 30px;
-    font-weight: 900;
-    letter-spacing: 3px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    box-shadow:
-        0 0 12px rgba(0, 255, 102, 0.35),
-        0 0 18px rgba(212, 175, 55, 0.2);
-    margin-bottom: 15px;
-}
-/* تحسين الموبايل */
-@media (max-width: 600px) {
+/* =========================
+   شاشات صغيرة جداً
+   ========================= */
+
+@media (max-width: 380px) {
+
+    .logo {
+        min-height: 135px;
+    }
+
     header h1 {
-        font-size: 34px;
+        font-size: 26px;
     }
 
     header h2 {
-        font-size: 24px;
-    }
-
-    header p {
-        font-size: 17px;
-    }
-
-    section {
-        margin: 15px 10px;
-        padding: 20px 12px;
-    }
-
-    .logo {
-        font-size: 26px;
-        padding: 8px 18px;
-    }
-
-    nav {
-        gap: 8px;
-        padding: 12px 6px;
+        font-size: 20px;
     }
 
     nav a {
-        padding: 10px 14px;
-        font-size: 15px;
+        font-size: 12px;
+        padding: 8px 9px;
     }
+}
+
+/* زر طلب خاص */
+.special-order-box a {
+    display: inline-block;
+    color: #ffffff;
+    background: linear-gradient(135deg, #00c853, #075cff);
+    text-decoration: none;
+    padding: 12px 22px;
+    margin-top: 20px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    border: 1px solid #00ff66;
+    box-shadow: 0 0 12px rgba(0, 255, 102, 0.3);
+    transition: 0.3s ease;
+}
+
+.special-order-box a:hover {
+    transform: scale(1.04);
+    background: linear-gradient(135deg, #075cff, #00c853);
+}
+
+/* ===== MOPRO STORE V2 - NEW LOOK ===== */
+
+.logo {
+    width: min(420px, 94%);
+    min-height: 250px;
+    margin: 0 auto 10px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+header {
+    border: none;
+}
+
+section,
+.price-box,
+.special-order-box,
+.contact-box,
+.links-box {
+    border: none;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+header h1 {
+    font-size: 44px;
+    margin-top: 0;
+}
+
+header h2 {
+    font-size: 28px;
+}
+
+nav {
+    border: none;
+}
+
+footer {
+    border-top: none;
 }
